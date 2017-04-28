@@ -3,9 +3,9 @@
  * 微信推送评论通知
  * 
  * @package Comment2Wechat
- * @author Y!an
+ * @author Bakumon
  * @version 1.0.0
- * @link https://yian.me
+ * @link https://www.bakumon.me
  */
 class Comment2Wechat_Plugin implements Typecho_Plugin_Interface
 {
@@ -73,8 +73,9 @@ class Comment2Wechat_Plugin implements Typecho_Plugin_Interface
 
         $sckey = $options->plugin('Comment2Wechat')->sckey;
 
-        $text = "有人在您的博客发表了评论";
-        $desp = "**".$comment['author']."** 在你的博客中说到：\n\n > ".$comment['text'];
+        $text = "文章《".$post->title."》有新的评论";
+
+        $desp = "**".$comment['author']."** 说到：\n\n > ".$comment['text'];
 
         $postdata = http_build_query(
             array(
